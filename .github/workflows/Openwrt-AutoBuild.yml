@@ -126,6 +126,7 @@ jobs:
         cd openwrt
         echo -e "2 thread compile"
         make -j2 || make -j1 V=s
+        find ./bin -name *initramfs*  -exec rm -f {} \;
         echo "::set-output name=status::success"
         
     - name:  Pack packages_dir
